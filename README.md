@@ -1,6 +1,6 @@
 # True Size Map
 
-**Live:** [true-country-size.vercel.app](https://true-country-size.vercel.app/)
+**Live:** [true-map-size.vercel.app](https://true-map-size.vercel.app/)
 
 A React app that visualizes the true geographic size of countries by overlaying them on a Mercator projection Google Map. Search for countries, place them on the map, and drag them across latitudes to see how Mercator distortion affects their apparent size. Multiple countries can be compared simultaneously.
 
