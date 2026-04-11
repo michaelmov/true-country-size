@@ -7,7 +7,7 @@ import { X } from 'lucide-react';
 export function SelectedCountryList() {
   const placedCountries = useMapContext((s) => s.placedCountries);
   const activeCountryId = useMapContext((s) => s.activeCountryId);
-  const setActiveCountry = useMapContext((s) => s.setActiveCountry);
+  const panToCountry = useMapContext((s) => s.panToCountry);
   const removeCountry = useMapContext((s) => s.removeCountry);
 
   const activeRef = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ export function SelectedCountryList() {
               placed.id === activeCountryId ? 'bg-accent' : 'hover:bg-accent/50'
             }`}
             style={placed.id === activeCountryId ? { borderColor: placed.color } : undefined}
-            onClick={() => setActiveCountry(placed.id)}
+            onClick={() => panToCountry(placed.id)}
           >
             <div className="flex items-center gap-2">
               <div

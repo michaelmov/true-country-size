@@ -4,6 +4,7 @@ import {
   ZoomControl,
 } from 'react-leaflet';
 import { CountryOverlay } from './CountryOverlay';
+import { MapPanner } from './MapPanner';
 import { useMapContext } from '@/context/useMapContext';
 import { useThemeContext } from '@/context/useThemeContext';
 import { ExtendedCRS } from '@/lib/extendedCRS';
@@ -45,6 +46,7 @@ export function MapContainer() {
           [85.05, 180],
         ]}
       />
+      <MapPanner />
       {isMediumBreakpoint && <ZoomControl position="bottomright" />}
       {placedCountries.map((placed) => (
         <CountryOverlay
