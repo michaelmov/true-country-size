@@ -10,7 +10,6 @@ import {
 import { CountrySearch } from './CountrySearch';
 import { SelectedCountryList } from './SelectedCountryList';
 import { ThemeToggle } from './ThemeToggle';
-import { ChevronUp } from 'lucide-react';
 import type { Country } from '@/types';
 
 interface SearchCardProps {
@@ -75,25 +74,10 @@ export function SearchCard({ countries, onSelect }: SearchCardProps) {
       </div>
 
       <CardHeader className="pb-2 pt-4 px-4 md:pt-4">
-        <CardTitle className="text-base font-semibold">
-          True Country Size
-        </CardTitle>
+        <CardTitle className="text-base font-semibold">True Map Size</CardTitle>
         <CardAction className="md:hidden">
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <button
-              onClick={() => (collapsed ? setCollapsed(false) : collapse())}
-              aria-label={
-                collapsed ? 'Expand search panel' : 'Collapse search panel'
-              }
-              className="h-7 w-7 rounded-full hover:bg-accent transition-colors duration-200 flex items-center justify-center cursor-pointer"
-            >
-              <ChevronUp
-                className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
-                  collapsed ? 'rotate-180' : 'rotate-0'
-                }`}
-              />
-            </button>
           </div>
         </CardAction>
       </CardHeader>
