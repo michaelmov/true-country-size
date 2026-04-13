@@ -7,10 +7,25 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { FaGithub } from 'react-icons/fa';
 import { CountrySearch } from './CountrySearch';
 import { SelectedCountryList } from './SelectedCountryList';
 import { ThemeToggle } from './ThemeToggle';
 import type { Country } from '@/types';
+
+const GITHUB_URL = 'https://github.com/michaelmov/true-map-size';
+
+const GithubLink = () => (
+  <a
+    href={GITHUB_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="View source on GitHub"
+    className="relative h-7 w-7 rounded-full hover:bg-accent transition-colors duration-200 flex items-center justify-center"
+  >
+    <FaGithub className="h-4 w-4 text-muted-foreground" />
+  </a>
+);
 
 interface SearchCardProps {
   countries: Country[];
@@ -74,9 +89,17 @@ export function SearchCard({ countries, onSelect }: SearchCardProps) {
       </div>
 
       <CardHeader className="pb-2 pt-4 px-4 md:pt-4">
-        <CardTitle className="text-base font-semibold">True Map Size</CardTitle>
+        <CardTitle className="flex justify-between text-base font-semibold">
+          <span>True Map Size</span>
+          <div className="hidden md:block">
+            <GithubLink />
+          </div>
+        </CardTitle>
         <CardAction className="md:hidden">
           <div className="flex items-center gap-2">
+            <div className="block md:hidden">
+              <GithubLink />
+            </div>
             <ThemeToggle />
           </div>
         </CardAction>
@@ -101,9 +124,11 @@ export function SearchCard({ countries, onSelect }: SearchCardProps) {
       </div>
 
       {/* Desktop-only footer */}
-      <CardFooter className="hidden md:flex justify-between px-4 py-3">
+      <CardFooter className="hidden md:flex justify-between items-center px-4 py-3">
         <span className="text-xs text-muted-foreground">Theme</span>
-        <ThemeToggle />
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
+        </div>
       </CardFooter>
     </Card>
   );
